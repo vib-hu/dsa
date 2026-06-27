@@ -13,31 +13,25 @@ public class RecursiveTreeTraversals {
     public void inOrder(Node node){
         if(node == null)
             return;
-        preOrder(node.left);
+        inOrder(node.left);
         System.out.print(node.val);
-        preOrder(node.right);
+        inOrder(node.right);
     }
 
     public void postOrder(Node node){
         if(node == null)
             return;
-        preOrder(node.left);
-        preOrder(node.right);
+
+        postOrder(node.left);
+        postOrder(node.right);
         System.out.print(node.val);
     }
 
     public static void main(String[] args){
-        Node root = new Node(0);
-        root.left = new Node(1);
-        root.right = new Node(2);
-        root.left.left = new Node(3);
-        root.left.right = new Node(4);
-        root.right.left = new Node(5);
-        root.right.right = new Node(6);
 
         RecursiveTreeTraversals traversals = new RecursiveTreeTraversals();
-        traversals.preOrder(root);
-        traversals.inOrder(root);
-        traversals.postOrder(root);
+        traversals.preOrder(Node.buildTree(3));
+        traversals.inOrder(Node.buildTree(3));
+        traversals.postOrder(Node.buildTree(3));
     }
 }
