@@ -9,7 +9,7 @@ public class TreeBottomView {
     // Using tree map for printing column-wise tree left to right
     TreeMap<Integer, Node> map = new TreeMap<>();
 
-    public void BottomView(Node root){
+    public void bottomView(Node root){
         bfs(root);
         map.values().forEach(p->System.out.print(p.val+","));
     }
@@ -34,6 +34,6 @@ public class TreeBottomView {
 
     public static void main(String[] args){
         TreeBottomView bottomView = new TreeBottomView();
-        bottomView.BottomView(Node.buildTree(4));
+        bottomView.bottomView(Node.buildTree(4));
     }
 }
