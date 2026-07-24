@@ -1,4 +1,6 @@
-package Tree;
+package Tree.Bst;
+
+import Tree.Node;
 
 public class SearchInBST {
 
