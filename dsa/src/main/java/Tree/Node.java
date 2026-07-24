@@ -17,6 +17,23 @@ public class Node {
         this.val = val;
     }
 
+    public static Node buildBST(int level){
+        int totalNodes = (1 << level) - 1; // 2^level - 1
+        int[] counter = {1};
+        return buildInOrder(level, counter);
+    }
+
+    private static Node buildInOrder(int level, int[] counter){
+        if(level == 0) return null;
+        Node left = buildInOrder(level - 1, counter);
+        Node node = new Node(counter[0]++);
+        node.left = left;
+        node.right = buildInOrder(level - 1, counter);
+        return node;
+    }
+
+
+
     public static Node buildTree(int level){
         int counter = 1;
         Node root = new Node(counter++);
